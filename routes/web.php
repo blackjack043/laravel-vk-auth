@@ -21,13 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+// ------------- start vk auth
 Route::get('/auth/vk', function () {
     return Socialite::driver('vkontakte')->redirect();
 });
 
 
-
 Route::get('/auth/vk/callback', [VkController::class, 'callback']);
+// -------------end vk auth
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
